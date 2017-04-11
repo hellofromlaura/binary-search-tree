@@ -124,9 +124,9 @@ tree.insert('T');
 tree.insert('I');
 tree.insert('O');
 tree.insert('N');
-console.log(tree);
-// tree.right.right.key = 'A';
-// console.log(tree)
+//console.log(tree);
+//tree.right.right.key = 'A';
+//console.log(tree);
 
 //--------Tree Height ---
 // function height(node){
@@ -140,17 +140,58 @@ console.log(tree);
 //
 // console.log(height(tree));
 //-----------------
-function isBST(node) {
-    if(!node) {
-      return true;
-    }
-    if (node.left && node.left.key > node.key ) {
-      return false;
-    }
-    if (node.right && node.right.key < node.key) {
-      return false;
-    }
-    return (isBST(node.right) && isBST(node.left));
-}
 
-console.log(isBST(tree));
+const notBST = new BinarySearchTree();
+notBST.insert('G');
+notBST.insert('D');
+notBST.insert('L');
+notBST.insert('Z');
+notBST.insert('A');
+notBST.insert('F');
+notBST.insert('B');
+notBST.insert('M');
+
+notBST.left.left.right.key = 'F';
+//console.log(notBST);
+
+// function isBST(node) {
+//     let currentNode = node;
+//     if(!node) {
+//       return true;
+//     }
+//     while(currentNode.parent) {
+//       let whichChild = currentNode.parent.parent > currentNode.parent;
+//       if (whichChild !== (node.parent.parent > node.parent)){
+//         return false;
+//       }
+//       currentNode = currentNode.parent;
+//     }
+//     return (isBST(node.right) && isBST(node.left));
+// }
+//
+// console.log(isBST(notBST));
+
+
+
+// function thirdLargest(node) {
+//   let largest = node;
+//   let third;
+//   while (largest.right) {
+//     largest = largest.right;
+//   }
+//   let second = largest.left ? largest.left : largest.parent;
+//   }
+//   while (second.right && (second.right != largest)) {
+//     second = second.right;
+//   };
+//   // if (second.left && !second.left.right) {
+//   //   third = second.left;
+//   // }
+//   // if (!second.left && (second.parent != largest)) {
+//   //   third = second.parent;
+//   // }
+//   // else if (!second.left){
+//   //   third = parent.largest;
+//   // }
+//   // return third;
+// }
