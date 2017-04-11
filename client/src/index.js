@@ -125,15 +125,32 @@ tree.insert('I');
 tree.insert('O');
 tree.insert('N');
 console.log(tree);
+// tree.right.right.key = 'A';
+// console.log(tree)
 
-
-function height(node){
-   if(!node) return 0;
-   var leftHeight = height(node.left);
-   var rightHeight = height(node.right);
-
-   return Math.max(leftHeight, rightHeight) + 1;
+//--------Tree Height ---
+// function height(node){
+//    if(!node) return 0;
+//    var leftHeight = height(node.left);
+//    var rightHeight = height(node.right);
+//
+//    return Math.max(leftHeight, rightHeight) + 1;
+// }
+//
+//
+// console.log(height(tree));
+//-----------------
+function isBST(node) {
+    if(!node) {
+      return true;
+    }
+    if (node.left && node.left.key > node.key ) {
+      return false;
+    }
+    if (node.right && node.right.key < node.key) {
+      return false;
+    }
+    return (isBST(node.right) && isBST(node.left));
 }
 
-
-console.log(height(tree));
+console.log(isBST(tree));
